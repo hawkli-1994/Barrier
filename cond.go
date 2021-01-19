@@ -2,13 +2,11 @@ package barrier
 
 type Cond struct {
 	wait chan int
-	L *Lock
 }
 
-func newCond(L *Lock) *Cond {
+func newCond() *Cond {
 	return &Cond{
 		wait: make(chan int),
-		L: L,
 	}
 }
 
