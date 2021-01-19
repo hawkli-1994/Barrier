@@ -35,8 +35,9 @@ func (barrier *Barrier) Wait() {
 }
 
 func main() {
-	b := NewBarrier(3)
-	for i := 1; i < 4; i++ {
+	n := 3
+	b := NewBarrier(n)
+	for i := 1; i < n + 1; i++ {
 		go func(s int) {
 			time.Sleep(time.Duration(s) * time.Second)
 			b.Wait()
