@@ -25,6 +25,9 @@ func NewBarrier(n int) *Barrier {
 }
 
 func (barrier *Barrier) Wait() {
+	if barrier.n  < 2 {
+		return
+	}
 	c := barrier.channels[0]
 	n := <-c
 	if n != barrier.n {
